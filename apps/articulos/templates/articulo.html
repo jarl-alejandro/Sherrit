@@ -1,0 +1,28 @@
+{% extends "bases.html" %}
+{% block content %}
+	<header>
+		{{ user }}
+		<figure>
+			<img class="avatar" src="{{MEDIA_URL}}{{ avatar }}">
+		</figure>
+	</header>
+	<section>
+		<article>
+			<div>
+				<h1>{{ articulo.titulo }}</h1>
+			</div>
+			<p>{{ articulo.votos }}</p>
+			<figure>
+				<img class="avatar" 
+					src="{{MEDIA_URL}}{{ articulo.creador.avatar }}">
+			</figure>
+			<div>
+				<strong>{{ articulo.creador }}</strong>
+				<span>{{ articulo.fecha|timesince }}</span>
+			</div>
+			<div>
+				<p>{{ articulo.contenido }}</p>
+			</div>
+		</article>
+	</section>
+{% endblock content %}

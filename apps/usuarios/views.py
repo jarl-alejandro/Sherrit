@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.template.context import RequestContext
+from django.contrib.auth import logout
+
 from apps.usuarios.forms import PerfilForm
 from apps.usuarios.models import Perfil
 
@@ -9,6 +11,10 @@ def login(request):
 
 def error(request):
 	return render(request, "error.html")
+
+def logOut(request):
+	logout(request)
+	return HttpResponseRedirect('/')
 
 def nuevo_usuario(request):
 	if request.POST:

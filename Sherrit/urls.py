@@ -6,10 +6,14 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
+
  	url(r'^$', 'apps.usuarios.views.login', name="login"),
- 	url(r'^home/$', 'apps.articulos.views.home', name="home"),
- 	url(r'^new-users/$', 'apps.usuarios.views.nuevo_usuario', name="new-users"),
  	url(r'^login-error/$', 'apps.usuarios.views.error', name="error"),
+ 	url(r'^new-users/$', 'apps.usuarios.views.nuevo_usuario', name="new-users"),
+ 	url(r'^salir/$', 'apps.usuarios.views.logOut', name="logOut"),
+
+ 	url(r'^home/$', 'apps.articulos.views.home', name="home"),
+ 	url(r'^articulo/(?P<slug>[-\w]+)/$', 'apps.articulos.views.articulo', name="articulo"),
 
 )
 
