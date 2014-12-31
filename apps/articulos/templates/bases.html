@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	{% load static from staticfiles %}
 	<meta charset="utf-8" />
-	<title>Articulos</title>
-	<style type="text/css">
-.avatar{
-	width: 50px;
-	height: 50px;
-}
-	</style>
+	<title>Sherrit</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/articulo.css' %}">
 </head>
 <body>
-{% block content %}
-	
-{% endblock content %}
+	{% block header %}
+		<header>
+			<div class="logo">
+				<img src="{% static 'img/logo.png' %}" alt="Sherrit" />
+			</div>
+			<div class="titulo">
+				<h1>Sherrit: Comparte con nosotros tus experiencias</h1>
+			</div>
+			<div class="usuario">
+				<figure class="avatar">
+					<a href="{% url 'add' %}">
+						<img src="{{MEDIA_URL}}{{ avatar }}">
+					</a>
+				</figure>
+				<a class="flecha" href="{% url 'logOut' %}"></a>
+			</div>
+			<a class="new_history" href="{% url 'add' %}">Escribir una historia</a>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="{% url 'home' %}">Home</a></li>
+				<li><a href="#">Mis articulos</a></li>
+			</ul>
+		</nav>
+	{% endblock header %}
+	{% block content %}
+	{% endblock content %}
 </body>
 </html>

@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	{% load static from staticfiles %}
 	<meta charset="utf-8" />
-	<title>Login</title>
+	<title>Sherrit</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' 
+		type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/usuario.css' %}">
 </head>
 <body>
 {% block content %}
 	
 {% endblock content %}
+	<script type="text/javascript"
+		src="{% static 'js/usuario.js' %}">
+	</script>
 </body>
 </html>

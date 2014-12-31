@@ -1,19 +1,30 @@
 {% extends "bases.html" %}
 {% block content %}
-<header>
-	{{ user }}
-	<a href="{% url 'logOut' %}">Salir</a>
-	<figure>
-		<img class="avatar" src="{{MEDIA_URL}}{{ avatar }}">
-	</figure>
-</header>
-<section>
+<section class="articulos">
 	{% for articulo in articulos %}
-		<h1><a href="/articulo/{{ articulo.slug }}">{{ articulo.titulo }}</a></h1>
-		<img class="avatar" src="{{MEDIA_URL}}{{ articulo.creador.avatar }}">
-		<span>{{ articulo.creador }}</span>
-		<span>{{ articulo.fecha|timesince }}</span>
-		<strong>{{ articulo.votos }}</strong>
+	<article class="articulo">
+		<div class="descripcion">
+			<div class="imagen">
+				<img src="{{MEDIA_URL}}{{ articulo.creador.avatar }}">
+			</div>
+			<div class="detalle">
+				<h2 class="title">
+					<a href="{% url 'articulo' articulo.slug %}">
+						{{ articulo.titulo }}
+					</a>
+				</h2>
+				<p class="autor">Por <a href="#">{{ articulo.creador }}</a></p>
+			</div>
+		</div>
+		<div class="acciones">
+			<div class="votos">
+				<a class="plus" href="#"></a>		
+				<p class="voto">{{ articulo.votos }}</p>
+				<a class="minus" href="#"></a>
+			</div>
+			<p class="fecha">{{ articulo.fecha|timesince }}</p>
+		</div>
+	</article>
 	{% endfor %}
 </section>
 {% endblock content %}

@@ -1,6 +1,27 @@
 {% extends "base.html" %}
+{% load static from staticfiles %}
 {% block content %}
-<section>
-	<a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
-</section>
+	<header>
+		<h1 class="titulo">
+			Sherrit
+		</h1>
+	</header>
+	<section>
+		<article class="wrapper">
+			<div class="info">
+				<h2>
+					Se parte de Sherrit comparte 
+					tus experiencias con nosotros
+				</h2>
+			</div>
+			<div class="facebook">
+				<a href="{% url 'social:begin' 'facebook' %}">
+					Conectate con Facebook
+				</a>
+			</div>
+			<figure>
+				<img class="phone" src="{% static 'img/phone.png' %}">
+			</figure>
+		</article>
+	</section>
 {% endblock content %}

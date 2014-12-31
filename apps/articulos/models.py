@@ -17,3 +17,4 @@ class Articulo(models.Model):
 		if not self.id:
 			self.slug = slugify(self.titulo)
 		super(Articulo, self).save(*args, **kargs)
+

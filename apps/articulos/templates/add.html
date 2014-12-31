@@ -1,0 +1,40 @@
+{% extends "bases.html" %}
+{% load static from staticfiles %}
+{% block header %}
+	<header>
+		<div class="logo">
+			<img src="{% static 'img/logo.png' %}" alt="Sherrit" />
+		</div>
+		<div class="titulo">
+			<h1>Sherrit: Comparte con nosotros tus experiencias</h1>
+		</div>
+		<div class="usuario">
+			<figure class="avatar">
+				<img src="{{MEDIA_URL}}{{ avatar }}">
+			</figure>
+			<a class="flecha" href="{% url 'logOut' %}"></a>
+		</div>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="#">Mis articulos</a></li>
+		</ul>
+	</nav>
+{% endblock header %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<p>
+			<input class="titulo" required maxlength="140" 
+				name="titulo" type="text" placeholder="Titulo" />
+		</p>
+		<input class="button" type="submit" /> 
+		<p>
+			<textarea class="contenido" required="tru"
+				name="contenido">
+			</textarea>
+		</p>
+	</form>
+{% endblock content %}

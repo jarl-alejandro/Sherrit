@@ -1,28 +1,37 @@
 {% extends "bases.html" %}
 {% block content %}
-	<header>
-		{{ user }}
-		<figure>
-			<img class="avatar" src="{{MEDIA_URL}}{{ avatar }}">
-		</figure>
-	</header>
 	<section>
-		<article>
-			<div>
-				<h1>{{ articulo.titulo }}</h1>
+		<a href="{% url 'home' %}">Regresar</a>
+		<aside>
+			<div class="creador">
+				<figure>
+					<img class="avatar"
+						src="{{MEDIA_URL}}{{ articulo.creador.avatar }}">
+				</figure>
+				<p class="username">
+					{{ articulo.creador }}
+				</p>
 			</div>
-			<p>{{ articulo.votos }}</p>
-			<figure>
-				<img class="avatar" 
-					src="{{MEDIA_URL}}{{ articulo.creador.avatar }}">
-			</figure>
-			<div>
-				<strong>{{ articulo.creador }}</strong>
+			<div class="fechas">
 				<span>{{ articulo.fecha|timesince }}</span>
 			</div>
+			<div class="votos">
+				<a class="plus" href="#">P</a>		
+				<p>{{ articulo.votos }}</p>
+				<a class="minus" href="#">M</a>
+			</div>
+		</aside>
+		<article>
+			<h2 class="title">
+				{{ articulo.titulo }}
+			</h2>
+			
 			<div>
 				<p>{{ articulo.contenido }}</p>
 			</div>
 		</article>
 	</section>
 {% endblock content %}
+
+
+

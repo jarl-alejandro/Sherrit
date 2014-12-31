@@ -13,6 +13,7 @@ urlpatterns = patterns('',
  	url(r'^salir/$', 'apps.usuarios.views.logOut', name="logOut"),
 
  	url(r'^home/$', 'apps.articulos.views.home', name="home"),
+ 	url(r'^add/$', 'apps.articulos.views.add', name="add"),
  	url(r'^articulo/(?P<slug>[-\w]+)/$', 'apps.articulos.views.articulo', name="articulo"),
 
 )

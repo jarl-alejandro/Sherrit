@@ -26,6 +26,6 @@ def nuevo_usuario(request):
 			return HttpResponseRedirect("/home")
 	else:
 		form = PerfilForm()
-	return render(request, "nuevousuario.html", {'form':form })
+	return render(request, "newuser.html", {'form':form })
 
 
